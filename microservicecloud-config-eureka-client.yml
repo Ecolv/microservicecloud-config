@@ -1,0 +1,54 @@
+#以UTF-8格式保存
+spring:
+  profiles:
+    active:
+    - dev
+---
+#服务端口号    
+server:
+  port: 7001
+  
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-eureka-client  
+    
+eureka:
+#  自我保护机制 
+#  server:
+#    enable-self-preservation: false
+  instance:
+    #指定eureka实例的主机名
+    hostname: eureka7001
+  client:
+    #是否注册到其他eureka服务端
+    registerWithEureka: false
+    #是否需要拉取服务信息
+    fetchRegistry: false
+    serviceUrl: 
+      defaultZone: http://eureka7001:7001/eureka/
+    
+---
+#服务端口号    
+server:
+  port: 7001
+  
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-eureka-client  
+    
+eureka:
+#  自我保护机制 
+#  server:
+#    enable-self-preservation: false
+  instance:
+    #指定eureka实例的主机名
+    hostname: eureka7001
+  client:
+    #是否注册到其他eureka服务端
+    registerWithEureka: false
+    #是否需要拉取服务信息
+    fetchRegistry: false
+    serviceUrl: 
+      defaultZone: http://eureka7001:7001/eureka/
